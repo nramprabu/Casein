@@ -1,0 +1,18 @@
+<div id="fb_comment">
+	<fieldset>     
+	<dl>
+	<dt><label for="comment">Add your comment:</label></dt>
+	<dd> 
+	<%= form_for [@commentable, Comment.new] , :url => casein_article_comments_path do |f| %>
+	<div class="field">
+	<%= f.text_area :content, :rows => 5 %>
+	<%= f.hidden_field :user_id, {:value => current_user.id} %>
+	</div>
+	<div class="actions">
+	<%= submit_tag "Save" %>
+	</div>
+	<% end %>
+	</dd>
+	</dl>       
+    </fieldset>		
+</div>

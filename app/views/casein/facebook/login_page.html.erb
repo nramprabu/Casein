@@ -1,0 +1,23 @@
+<h1>Login</h1><br/>
+<p><%=link_to "Facebook login",facebook_login_start_casein_facebook_index_path %></p>
+<p><%=link_to "Twitter tweets",new_casein_facebook_path %></p>
+<div class="fb-like" data-href="http://localhost:3000" data-send="true" data-layout="button_count" data-show_faces="false" font="arial"></div>
+
+<div class="fb-like-box" data-href="http://localhost:3000/" data-width="265" data-show_faces="true" data-stream="true" data-border_color="#ccc" data-header="false" data-ref="facebook_fb-page"></fb:like-box>
+
+<div class="fb-comments" data-width="500" data-num_posts="2" data-href="http://localhost:3000/"></div>
+
+<script type="text/javascript">
+window.fbAsyncInit = function() {
+FB.init({appId: '139189009564249',
+status: true,
+cookie: true,
+xfbml: true
+}); };
+(function() {
+var e = document.createElement('script'); e.async = true;
+e.src = document.location.protocol +
+'//connect.facebook.net/en_US/all.js';
+document.getElementById('fb-root').appendChild(e);
+}());
+</script>

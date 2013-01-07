@@ -1,0 +1,22 @@
+<div id="home_ele">
+<li><b><%= link_to "Article".html_safe,"#",:id=>"artice_id" %></b></li>
+<li><b><%= link_to "Event".html_safe, casein_events_path %></b></li>
+</div>
+
+<div id="repl_ele"></div>
+
+
+
+
+<script>
+$(document).ready(function() {
+$('#artice_id').click(function(){	  	  
+		$.ajax({
+			url:'/casein/articles',			
+			type: "GET"        
+			});
+      return false;		
+	});	
+});
+
+</script>

@@ -1,0 +1,46 @@
+<table cellpadding="0" cellspacing="0" id="itemList" class="itemList">
+	<tr>
+		<th>Comments</th>		
+		<th>Posted by</th>
+		<th>&nbsp;</th>
+	</tr>
+	
+<% @comments.each_with_index do |comment, index| %>
+		<tr class="<%= 'even' if index.modulo(2) == 0 %> hover">
+			<td><%= comment.content %></td>	
+			<td><%= casein_find_user_comment(comment.user_id) %></td>	
+			<td class="delete">
+				<%#= link_to(casein_show_row_icon("delete"), casein_product_comment_path(comment), :method => :delete, :confirm => "Are you sure you want to delete this comment?") %>
+			</td>
+		</tr>
+	<% end %>
+	
+</table>
+
+<div class="update_paginate">
+<%= will_paginate @comments , :previous_label => "<<" ,:next_label => ">>"  %>
+</div>
+
+<br/>
+<p><b><%= link_to 'Add new comment', "#",:id => "new_comment" %></b></p>
+
+<div id="form_comment" style="display: none;">
+	<fieldset>     
+	<dl>
+	<dt><label for="email">Add your comment:</label></dt>
+	<dd> 
+	<%= form_for [@commentable, Comment.new] , :url => casein_article_comments_path do |f| %>
+	<div class="field">
+	<%= f.text_area :content, :rows => 5 %>
+	<%= f.hidden_field :user_id, {:value => current_user.id} %>
+	</div>
+	<div class="actions">
+	<%= submit_tag "Save" %>
+	</div>
+	<% end %>
+	</dd>
+	</dl>       
+    </fieldset>		
+</div>
+
+

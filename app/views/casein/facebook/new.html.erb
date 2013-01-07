@@ -1,0 +1,11 @@
+<% if @error_message %>
+<div id="error_message"><%=@error_message%></div>
+<% end %>
+<div id="fb_comment"> 
+  <table>
+	<%= form_tag(twitter_tweets_casein_facebook_index_path)  do %>
+	<p>Add your comment: <br /><%= text_area_tag "tweet_comment"," ",:size=>"50x10" %> </p>
+	<p><%= submit_tag "Submit" %></p>
+	<% end %>	
+	</table>
+</div>

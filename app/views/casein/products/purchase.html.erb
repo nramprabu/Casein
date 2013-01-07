@@ -1,0 +1,9 @@
+<div id="new">
+<%= form_for :order do |f| %> 
+<%= render :partial => 'casein/products/pur_form', :locals => { :f => f } %>	
+<p class="submits">
+<%= link_to 'Cancel', casein_products_path, :class => 'cancel' %> or
+<%= f.submit "Purchase product" %>
+</p>	
+<% end %>
+</div>

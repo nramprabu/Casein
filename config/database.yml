@@ -5,7 +5,7 @@
 #   gem 'sqlite3'
 development:
   adapter: mysql
-  database: sample_cms_proj
+  database: sample_cms_proj_new
   username: root
   password : root
 

@@ -5,9 +5,10 @@ module Casein
   	# Used in text and titles throughout Casein
     
     def casein_find_user_comment(user)
-     @user=ActiveRecord::Base.connection.execute("select * from casein_users where `id`= #{user}")
-     @user=@user.fetch_hash
-     return @user["name"]
+     @user=ActiveRecord::Base.connection.execute("select * from casein_users where id = #{user}")
+     @user=@user.to_a     
+     return @user[0]["login"]   if @user[0].class=="Hash"        
+     return @user[0][1]
     end
     
     def fullname(fname,lname)

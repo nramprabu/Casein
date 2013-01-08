@@ -44,6 +44,16 @@ $('#new_comment').click(function(e) {
     e.preventDefault();
 });
 
+$('#artice_id').click(function(e) {
+	$("#spinner_img img").show();
+    $('#spinner_img').lightbox_me({
+        centered: true, 
+        onLoad: function() { 
+            $('#spinner_img').find('input:first').focus()
+            }
+        });
+    e.preventDefault();
+});
 
 });
 

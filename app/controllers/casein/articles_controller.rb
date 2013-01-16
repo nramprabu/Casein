@@ -9,7 +9,7 @@ module Casein
   
     def index
       @casein_page_title = 'Articles'
-  		@articles = Article.paginate(:page => params[:page], :per_page=> APP_CONFIG['Pagination']['per_page'], :order => 'created_at ASC')     
+  		@articles = pagination
       respond_to do |format|
         format.js
       end      
@@ -26,14 +26,15 @@ module Casein
     end
 
     def create
-      @article = Article.new params[:article]
-    
+      @article = Article.new params[:article]    
       if @article.save
-        flash[:notice] = 'Article created'
-        redirect_to casein_articles_path
-      else
-        flash.now[:warning] = 'There were problems when trying to create a new article'
-        render :action => :new
+        @articles = pagination
+        @article_msg = 'Article has been created'
+        render :action=> :index
+      else  
+        response.headers['error_message'] = @article.errors.full_messages
+        render :nothing => true
+        #~ render :action => :new
       end
     end
   
@@ -43,13 +44,13 @@ module Casein
       @article = Article.find params[:id]
     
       if @article.update_attributes params[:article]
-        #~ flash[:notice] = 'Article has been updated'
+        @article_msg = 'Article has been updated'
         @casein_page_title = 'Articles'
-        @articles = Article.paginate(:page => params[:page], :per_page=> APP_CONFIG['Pagination']['per_page'], :order => 'created_at ASC')        
+        @articles = pagination
         render :action=> :index
       else
-        flash.now[:warning] = 'There were problems when trying to update this article'
-        render :action => :show
+        response.headers['error_message'] = @article.errors.full_messages
+        render :nothing => true
       end
     end
  
@@ -57,11 +58,17 @@ module Casein
       @article = Article.find params[:id]
 
       @article.destroy
-      #~ flash[:notice] = 'Article has been deleted'
+      @article_msg = 'Article has been deleted'
       #~ redirect_to casein_articles_path
       @casein_page_title = 'Articles'
-      @articles = Article.paginate :page => params[:page] 
+      @articles = pagination
       render :action=> :index
+    end
+    
+    private
+    
+    def pagination
+      Article.paginate(:page => params[:page], :per_page=> APP_CONFIG['Pagination']['per_page'], :order => 'created_at ASC')         
     end
   
   end

@@ -11,6 +11,10 @@ gem "heroku", "~> 2.33.5"
 
 gem 'pg'
 
+gem 'nifty-generators'
+
+gem "paperclip-ffmpeg"
+
 gem 'calendar_date_select', :git => 'http://github.com/paneq/calendar_date_select.git', :branch => 'rails3test' 
 
 gem 'casein'
@@ -59,3 +63,5 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+gem "mocha", :group => :test

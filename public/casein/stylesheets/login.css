@@ -98,8 +98,14 @@ a {
 	cursor: pointer;
 }
 
+
 #content .caseinSubmitBlue:hover {
 	background: #71b4ff;
+}
+
+#content a.caseinSubmitBlue {
+	background: grey;
+	text-decoration :none;
 }
 
 #content .error {

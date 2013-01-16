@@ -2,7 +2,7 @@
 
 
 <div class="tfContainer">
-	<%= casein_select f, f.object, :customer_id, Customer.all.collect {|p| [ p.name, p.id ] }, {:include_blank => 'Select Customer name'} %>
+	<%= casein_select f, f.object, :customer_id, Customer.all.collect {|p| [ p.first_name + p.last_name, p.id ] }, {:include_blank => 'Select Customer name'} %>
 </div>
 
 <div class="tfContainer tfContainerSecond">	

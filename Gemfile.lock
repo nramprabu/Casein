@@ -92,11 +92,15 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    metaclass (0.0.1)
     mime-types (1.19)
+    mocha (0.13.1)
+      metaclass (~> 0.0.1)
     multi_json (1.5.0)
     multipart-post (1.1.5)
     mysql (2.8.1)
     netrc (0.7.7)
+    nifty-generators (0.4.6)
     oauth2 (0.8.0)
       faraday (~> 0.8)
       httpauth (~> 0.1)
@@ -109,6 +113,9 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.4.0)
       mime-types
+    paperclip-ffmpeg (0.9.4)
+      paperclip (>= 0.9.2)
+      paperclip (>= 2.5.2)
     pg (0.14.1)
     polyglot (0.3.3)
     rack (1.4.2)
@@ -176,9 +183,12 @@ DEPENDENCIES
   heroku (~> 2.33.5)
   jquery-rails
   json
+  mocha
   mysql (= 2.8.1)
+  nifty-generators
   oauth2
   paperclip
+  paperclip-ffmpeg
   pg
   rails (= 3.2.9)
   rest-client

@@ -7,7 +7,7 @@
 	<%= render :partial => 'casein/articles/form', :locals => { :f => f } %>
 	
 	<p class="submits">
-	  <%= link_to 'Cancel', casein_articles_path, :class => 'cancel' %> or
+	  <%= link_to 'Cancel', casein_articles_path, :class => 'cancel', :remote=>true %> or
 		<%= f.submit "Save changes", :class => "update", :id=>"update_art" %>
 	</p>
 
@@ -18,19 +18,3 @@
 <%= content_for :sidebar do %>
 	<li><%= link_to "#{casein_show_icon "table"}Back to list".html_safe, casein_articles_path %></li>
 <% end %>
-
-
-<script>
-$(document).ready(function() {
-$('#update_art').click(function(){	  	  		       
-		var str=window.location.href.split("/");
-		var id=str[str.length-1];    	
-		$.ajax({		
-		url:'/casein/articles/'+id,
-		data: $('form.edit_article').serialize(),			
-		type: "PUT"        
-		});
-		return false;
-	});
-	});
-</script>

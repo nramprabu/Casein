@@ -242,3 +242,10 @@ div.loginBox {
     width: 350px;
 } 
 
+#form_comment fieldset img {
+	height: 21px;
+	margin-left: 333px;
+	position: fixed;
+	width: 21px;
+	z-index: 1000;
+}

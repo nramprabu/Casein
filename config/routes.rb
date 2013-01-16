@@ -1,12 +1,17 @@
 SampleAppCms::Application.routes.draw do
 
-root :to => "casein/casein#index"
+ root :to => "casein/casein#index"
 
 	#Casein routes
 	namespace :casein do
+    resources :posts
 		resources :events
 		resources :articles		
-		resources :home		
+		resources :home do 
+			collection do
+				get :casein_start
+			end
+    end			
 		resources :customer_visits
 		resources :product_categories
 		resources :products

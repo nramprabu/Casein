@@ -12,7 +12,7 @@ class Customer < ActiveRecord::Base
   validates :first_name, :presence => true, :length => { :maximum => 100 }     
   validates :phoneno,:address, :presence => true,:uniqueness=>true
   validates :email,:presence => true,:uniqueness=>true,:confirmation => true,:format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create }   
-  validates :terms_of_service, :acceptance => {:accept => true}
+  #validates :terms_of_service, :acceptance => {:accept => true }
   
   protected
   def ensure_name_has_a_value

@@ -15,6 +15,8 @@ gem 'nifty-generators'
 
 gem "paperclip-ffmpeg"
 
+gem 'delayed_job_active_record'
+
 gem 'calendar_date_select', :git => 'http://github.com/paneq/calendar_date_select.git', :branch => 'rails3test' 
 
 gem 'casein'

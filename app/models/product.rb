@@ -10,6 +10,6 @@ class Product < ActiveRecord::Base
    has_many :customers,:through => :customer_visits
    has_many :customer_visits,:dependent => :destroy
    belongs_to :product_category
-   validates :name, :presence => true, :length => { :maximum => 100 }   
+   validates :name, :presence => true, :length => { :maximum => 100 }, :uniqueness => { :case_sensitive => false }   
    validates :name,:years_of_launch,:product_category_id, :presence => true
 end
